@@ -2,16 +2,21 @@ import io
 import os
 from datetime import datetime
 
-from PIL import Image, ImageOps, ImageCms, ImageEnhance
+from PIL import (
+    Image,
+    ImageOps,
+    ImageCms,
+    ImageEnhance
+)
 
-def convert_to_profile(img: Image, profile_name: str):
-    icc = img.info.get('icc_profile', '')
-    if icc:
-        io_handle = io.BytesIO(icc)
-        src_profile = ImageCms.ImageCmsProfile(io_handle)
-        dst_profile = ImageCms.createProfile(profile_name)
-        img = ImageCms.profileToProfile(img, src_profile, dst_profile)
-    return img
+# def convert_to_profile(img: Image, profile_name: str):
+#     icc = img.info.get('icc_profile', '')
+#     if icc:
+#         io_handle = io.BytesIO(icc)
+#         src_profile = ImageCms.ImageCmsProfile(io_handle)
+#         dst_profile = ImageCms.createProfile(profile_name)
+#         img = ImageCms.profileToProfile(img, src_profile, dst_profile)
+#     return img
 
 
 # decorators
@@ -56,7 +61,7 @@ class FilmDeveloper:
 
     def _name_generator(self) -> str:
         time = datetime.now()
-        time_str = datetime.strftime(time, '%Y%m%d%H%M%S')
+        time_str = datetime.strftime(time, '%Y-%m-%d-%H-%M-%S')
 
         return time_str
 

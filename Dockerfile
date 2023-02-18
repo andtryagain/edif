@@ -1,8 +1,9 @@
 FROM python:3.10-slim
 
-COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN mkdir upload result &&  \
+    pip install -r requirements.txt
+
 COPY ./app /app
 EXPOSE 3000
 
