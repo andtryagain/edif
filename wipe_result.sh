@@ -1,3 +1,4 @@
 #!/bin/bash
 
-echo 'Hello world!'
+cd /app/result/
+rm *
