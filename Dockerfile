@@ -1,10 +1,11 @@
 FROM python:3.10-slim
 
 WORKDIR /app
+COPY ./app /app
+
 RUN mkdir upload result &&  \
     pip install -r requirements.txt
 
-COPY ./app /app
 EXPOSE 3000
 
 CMD [                       \

@@ -66,7 +66,7 @@ def developer_page(page, developer_class):
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             developer = get_developer(filename, developer_class)
             developer.execute()
-            path = f'./{RESULT_FOLDER}/{developer.result_filename}'
+            # path = f'./{RESULT_FOLDER}/{developer.result_filename}'
             # return send_file(path_or_file=path, as_attachment=True)
             return redirect(url_for('get_result_file', filename=developer.result_filename))
     return render_template(page)

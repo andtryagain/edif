@@ -45,6 +45,7 @@ def color(method):
 
 
 class FilmDeveloper:
+
     def __init__(  
             self,
             filename,
@@ -58,6 +59,7 @@ class FilmDeveloper:
         self.upload_folder    = upload_folder
         self.result_folder    = result_folder
         self.result_filename  = self._get_result_filename()
+
 
     def _name_generator(self) -> str:
         time = datetime.now()
