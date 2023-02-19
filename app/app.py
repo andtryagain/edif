@@ -93,6 +93,10 @@ def get_result_file(filename):
     return send_from_directory(directory=result, path=filename)
 
 
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html")
+
 
 
 if __name__ == '__main__':
